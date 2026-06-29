@@ -48,6 +48,16 @@ async function initializeApplication(){
 }
 
 /* =====================================================
+   REFRESH APPLICATION
+===================================================== */
+
+async function refreshApplication(){
+
+    await initializeApplication();
+
+}
+
+/* =====================================================
    RESET APPLICATION
 ===================================================== */
 
