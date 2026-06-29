@@ -204,7 +204,28 @@ const Finance={
         DASHBOARD.DEFAULT_SORT
 
     },
+   
+/* ======================================
+   CHART INSTANCE
+====================================== */
 
+chart:{
+
+    incomeExpense:null
+
+},
+
+/* ======================================
+   STATUS
+====================================== */
+
+loading:false,
+
+ready:false,
+
+error:null,
+
+lastSync:null
 
     /* ======================================
        STATUS
