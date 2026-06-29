@@ -84,32 +84,1091 @@ href="css/footer.css">
 
 <div id="app">
 
-<!-- HEADER -->
-<header id="header"></header>
+<!-- =====================================================
+HEADER
+===================================================== -->
 
-<!-- REMINDER -->
-<section id="reminder"></section>
+<header
+id="header"
+class="hero">
 
-<!-- SUMMARY -->
-<section id="summary"></section>
+<div class="hero-container">
 
-<!-- CHART -->
-<section id="chart"></section>
+<div class="hero-badge">
 
-<!-- STATISTICS -->
-<section id="statistics"></section>
+<span class="material-symbols-outlined">
 
-<!-- PLANNING -->
-<section id="planning"></section>
+dashboard
 
-<!-- INSIGHT -->
-<section id="insight"></section>
+</span>
 
-<!-- TRANSACTION -->
-<section id="transaction"></section>
+<span>
 
-<!-- FOOTER -->
-<footer id="footer"></footer>
+Finance Dashboard
+
+</span>
+
+</div>
+
+<h1
+id="headerGreeting">
+
+Halo, Mas Rifai 👋
+
+</h1>
+
+<p
+id="headerDescription">
+
+Selamat datang kembali.
+Mari lihat kondisi keuanganmu hari ini 🫴
+
+</p>
+
+<div
+id="headerInsight"
+class="hero-insight">
+
+💡 Loading insight...
+
+</div>
+
+<div class="hero-footer">
+
+<div class="hero-month">
+
+<span class="material-symbols-outlined">
+
+calendar_month
+
+</span>
+
+<span
+id="dashboardMonthText">
+
+Juli 2026
+
+</span>
+
+</div>
+
+<div class="hero-version">
+
+<span>
+
+v1.0
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- =====================================================
+REMINDER
+===================================================== -->
+
+<section
+id="reminder"
+class="section">
+
+<div class="section-header">
+
+<div class="section-title">
+
+<span class="material-symbols-outlined">
+
+notifications_active
+
+</span>
+
+<h2>
+
+Reminder
+
+</h2>
+
+</div>
+
+<span class="section-badge">
+
+Live
+
+</span>
+
+</div>
+
+<div
+id="reminderContainer"
+class="reminder-container">
+
+<div class="reminder-track">
+
+<div class="reminder-item">
+
+⏳ Memuat reminder...
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+  
+<!-- =====================================================
+SUMMARY
+===================================================== -->
+
+<section
+id="summary"
+class="section">
+
+<div class="section-header">
+
+<div class="section-title">
+
+<span class="material-symbols-outlined">
+
+analytics
+
+</span>
+
+<h2>
+
+Ringkasan Bulan Ini
+
+</h2>
+
+</div>
+
+</div>
+
+<div class="summary-grid">
+
+<div class="summary-card">
+
+<div class="summary-label">
+
+Pemasukan
+
+</div>
+
+<h2
+id="totalIncome">
+
+Rp0
+
+</h2>
+
+</div>
+
+<div class="summary-card">
+
+<div class="summary-label">
+
+Pengeluaran
+
+</div>
+
+<h2
+id="totalExpense">
+
+Rp0
+
+</h2>
+
+</div>
+
+<div class="summary-card">
+
+<div class="summary-label">
+
+Saldo
+
+</div>
+
+<h2
+id="totalBalance">
+
+Rp0
+
+</h2>
+
+</div>
+
+<div class="summary-card">
+
+<div class="summary-label">
+
+Saving Rate
+
+</div>
+
+<h2
+id="savingRate">
+
+0%
+
+</h2>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+CHART
+===================================================== -->
+
+<section
+id="chart"
+class="section">
+
+<div class="section-header">
+
+<div class="section-title">
+
+<span class="material-symbols-outlined">
+
+monitoring
+
+</span>
+
+<h2>
+
+Cash Flow
+
+</h2>
+
+</div>
+
+<span class="section-badge">
+
+3 Bulan
+
+</span>
+
+</div>
+
+<div class="chart-card">
+
+<div class="chart-container">
+
+<canvas
+id="incomeExpenseChart">
+
+</canvas>
+
+</div>
+
+</div>
+
+<div class="chart-summary">
+
+<div class="chart-summary-card">
+
+<div class="summary-title">
+
+Pemasukan
+
+</div>
+
+<h3
+id="chartIncome">
+
+Rp0
+
+</h3>
+
+</div>
+
+<div class="chart-summary-card">
+
+<div class="summary-title">
+
+Pengeluaran
+
+</div>
+
+<h3
+id="chartExpense">
+
+Rp0
+
+</h3>
+
+</div>
+
+<div class="chart-summary-card">
+
+<div class="summary-title">
+
+Saldo
+
+</div>
+
+<h3
+id="chartBalance">
+
+Rp0
+
+</h3>
+
+</div>
+
+</div>
+
+</section>
+  
+<!-- =====================================================
+STATISTICS
+===================================================== -->
+
+<section
+id="statistics"
+class="section">
+
+<div class="section-header">
+
+<div class="section-title">
+
+<span class="material-symbols-outlined">
+
+query_stats
+
+</span>
+
+<h2>
+
+Statistik
+
+</h2>
+
+</div>
+
+</div>
+
+<div class="statistics-grid">
+
+<div class="stat-card">
+
+<div class="stat-label">
+
+Pengeluaran Terbesar
+
+</div>
+
+<h3
+id="biggestExpenseCategory">
+
+-
+
+</h3>
+
+<p
+id="biggestExpenseValue">
+
+Rp0
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<div class="stat-label">
+
+Pemasukan Terbesar
+
+</div>
+
+<h3
+id="biggestIncomeCategory">
+
+-
+
+</h3>
+
+<p
+id="biggestIncomeValue">
+
+Rp0
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<div class="stat-label">
+
+Rata-rata Pengeluaran
+
+</div>
+
+<h3
+id="averageExpense">
+
+Rp0
+
+</h3>
+
+</div>
+
+<div class="stat-card">
+
+<div class="stat-label">
+
+Jumlah Transaksi
+
+</div>
+
+<h3
+id="transactionCount">
+
+0
+
+</h3>
+
+</div>
+
+</div>
+
+</section>
+  
+<!-- =====================================================
+PLANNING
+===================================================== -->
+
+<section
+id="planning"
+class="section">
+
+<div class="section-header">
+
+<div class="section-title">
+
+<span class="material-symbols-outlined">
+
+target
+
+</span>
+
+<h2>
+
+Planning Budget
+
+</h2>
+
+</div>
+
+<span class="section-badge">
+
+Bulanan
+
+</span>
+
+</div>
+
+<div
+id="planningValidation">
+
+</div>
+
+<div class="planning-summary">
+
+<div class="planning-card">
+
+<div class="planning-label">
+
+Budget Gaji
+
+</div>
+
+<h2
+id="budgetSalary">
+
+Rp0
+
+</h2>
+
+</div>
+
+<div class="planning-card">
+
+<div class="planning-label">
+
+Total Budget
+
+</div>
+
+<h2
+id="budgetTotal">
+
+Rp0
+
+</h2>
+
+</div>
+
+<div class="planning-card">
+
+<div class="planning-label">
+
+Terpakai
+
+</div>
+
+<h2
+id="budgetUsed">
+
+Rp0
+
+</h2>
+
+</div>
+
+<div class="planning-card">
+
+<div class="planning-label">
+
+Sisa Budget
+
+</div>
+
+<h2
+id="budgetRemaining">
+
+Rp0
+
+</h2>
+
+</div>
+
+</div>
+
+<div class="planning-health">
+
+<div class="planning-health-header">
+
+<h3>
+
+Financial Health
+
+</h3>
+
+<h2
+id="budgetHealth">
+
+100
+
+</h2>
+
+</div>
+
+<p
+id="budgetHealthStatus">
+
+Sangat Sehat
+
+</p>
+
+<div class="progress">
+
+<div
+id="budgetProgress"
+class="progress-bar">
+
+</div>
+
+</div>
+
+</div>
+
+<div
+id="planningContainer"
+class="planning-list">
+
+<!-- Planning Item -->
+
+</div>
+
+</section>
+  
+<!-- =====================================================
+INSIGHT
+===================================================== -->
+
+<section
+id="insight"
+class="section">
+
+<div class="section-header">
+
+<div class="section-title">
+
+<span class="material-symbols-outlined">
+
+psychology
+
+</span>
+
+<h2>
+
+Insight Keuangan
+
+</h2>
+
+</div>
+
+<span class="section-badge">
+
+AI</span>
+
+</div>
+
+<div
+id="insightContainer"
+class="insight-grid">
+
+<div class="insight-card">
+
+<div class="insight-icon">
+
+💡
+
+</div>
+
+<div>
+
+<h3>
+
+Memuat Insight...
+
+</h3>
+
+<p>
+
+Insight akan muncul setelah data diproses.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+TRANSACTION
+===================================================== -->
+
+<section
+id="transaction"
+class="section">
+
+<div class="section-header">
+
+<div class="section-title">
+
+<span class="material-symbols-outlined">
+
+receipt_long
+
+</span>
+
+<h2>
+
+Riwayat Transaksi
+
+</h2>
+
+</div>
+
+<span
+id="transactionCount"
+class="section-badge">
+
+0 Transaksi
+
+</span>
+
+</div>
+
+<!-- ==========================
+FILTER
+========================== -->
+
+<div class="transaction-filter">
+
+<div class="filter-item">
+
+<label>
+
+Bulan
+
+</label>
+
+<select
+id="transactionMonth">
+
+<option value="all">
+
+Semua Bulan
+
+</option>
+
+</select>
+
+</div>
+
+<div class="filter-item">
+
+<label>
+
+Kategori
+
+</label>
+
+<select
+id="categoryFilter">
+
+<option value="all">
+
+Semua Kategori
+
+</option>
+
+</select>
+
+</div>
+
+<div class="filter-item filter-search">
+
+<label>
+
+Cari
+
+</label>
+
+<input
+
+type="search"
+
+id="transactionSearch"
+
+placeholder="Cari keterangan..."
+
+>
+
+</div>
+
+<div class="filter-item">
+
+<label>
+
+Urutkan
+
+</label>
+
+<select
+id="transactionSort">
+
+<option value="newest">
+
+Terbaru
+
+</option>
+
+<option value="oldest">
+
+Terlama
+
+</option>
+
+<option value="highest">
+
+Nominal Terbesar
+
+</option>
+
+<option value="lowest">
+
+Nominal Terkecil
+
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<!-- ==========================
+TABLE
+========================== -->
+
+<div class="table-wrapper">
+
+<table
+id="transactionTable">
+
+<thead>
+
+<tr>
+
+<th>Tanggal</th>
+
+<th>Kategori</th>
+
+<th>Keterangan</th>
+
+<th>Jenis</th>
+
+<th>Nominal</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td colspan="5">
+
+Memuat transaksi...
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<!-- ==========================
+MOBILE CARD
+========================== -->
+
+<div
+id="mobileTransaction">
+
+</div>
+
+<!-- ==========================
+BUTTON
+========================== -->
+
+<div class="transaction-action">
+
+<button
+id="showMore"
+class="btn">
+
+Lihat Semua
+
+</button>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+FOOTER
+===================================================== -->
+
+<footer
+id="footer">
+
+<div class="footer-container">
+
+<div class="footer-left">
+
+<h3>
+
+Finance Dashboard
+
+</h3>
+
+<p>
+
+Kelola keuangan lebih baik,
+satu langkah setiap hari.
+
+</p>
+
+</div>
+
+<div class="footer-right">
+
+<div>
+
+Dashboard Bulan
+
+</div>
+
+<strong
+id="footerMonth">
+
+Juli 2026
+
+</strong>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<div>
+
+Last Sync
+
+</div>
+
+<div
+id="lastSync">
+
+-
+
+</div>
+
+</div>
+
+</footer>
+
+</div>
+<!-- END APP -->
+
+
+<!-- =====================================================
+LOADING
+===================================================== -->
+
+<div
+id="loadingOverlay"
+class="hidden">
+
+<div class="loading-card">
+
+<div class="loading-spinner">
+
+</div>
+
+<h3>
+
+Memuat Dashboard...
+
+</h3>
+
+<p>
+
+Mengambil data dari Google Spreadsheet
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+EMPTY STATE
+===================================================== -->
+
+<div
+id="emptyState"
+class="hidden">
+
+<span class="material-symbols-outlined">
+
+inventory_2
+
+</span>
+
+<h2>
+
+Belum Ada Data
+
+</h2>
+
+<p>
+
+Silakan tambahkan transaksi terlebih dahulu.
+
+</p>
+
+</div>
+
+
+<!-- =====================================================
+ERROR STATE
+===================================================== -->
+
+<div
+id="errorState"
+class="hidden">
+
+<span class="material-symbols-outlined">
+
+error
+
+</span>
+
+<h2>
+
+Terjadi Kesalahan
+
+</h2>
+
+<p
+id="errorMessage">
+
+-
+
+</p>
+
+</div>
+
+
+<!-- =====================================================
+JAVASCRIPT
+===================================================== -->
+
+<script src="js/utils.js"></script>
+
+<script src="js/config.js"></script>
+
+<script src="js/api.js"></script>
+
+<script src="js/process.js"></script>
+
+<script src="js/charts.js"></script>
+
+<script src="js/planning.js"></script>
+
+<script src="js/table.js"></script>
+
+<script src="js/insight.js"></script>
+
+<script src="js/dashboard.js"></script>
+
+<script src="js/main.js"></script>
+
+</body>
+
+</html>
 
 </div>
 
