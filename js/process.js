@@ -4,7 +4,6 @@
    DESCRIPTION : Data Processor
 ===================================================== */
 
-
 /* =====================================================
    PROCESS DATA
 ===================================================== */
@@ -13,7 +12,7 @@ function processData(){
 
     processTransaction();
 
-    processPlanning();
+    loadPlanning();
 
     processSummary();
 
@@ -28,7 +27,7 @@ function processData(){
 
 function processTransaction(){
 
-    Finance.data.transaksi=
+    Finance.data.transaksi =
 
     [...Finance.raw.transaksi];
 
@@ -36,12 +35,12 @@ function processTransaction(){
 
 
 /* =====================================================
-   PLANNING
+   LOAD PLANNING DATA
 ===================================================== */
 
-function processPlanning(){
+function loadPlanning(){
 
-    Finance.data.planning=
+    Finance.data.planning =
 
     [...Finance.raw.planning];
 
@@ -519,7 +518,7 @@ function processAll(){
 
     processTransaction();
 
-    processPlanning();
+    loadPlanning();
 
     processSummary();
 
