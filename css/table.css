@@ -1,0 +1,259 @@
+/* =====================================================
+   FINANCE DASHBOARD
+   FILE : css/table.css
+   DESCRIPTION : Transaction Table
+===================================================== */
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+.transaction-filter{
+
+    margin-bottom:24px;
+
+}
+
+.filter-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.filter-item label{
+
+    margin-bottom:8px;
+
+}
+
+
+/* =====================================================
+   TABLE WRAPPER
+===================================================== */
+
+.table-wrapper{
+
+    width:100%;
+
+    overflow-x:auto;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    background:var(--surface);
+
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+#transactionTable{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+#transactionTable thead{
+
+    background:var(--primary-light);
+
+}
+
+#transactionTable th{
+
+    padding:16px;
+
+    text-align:left;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+    white-space:nowrap;
+
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+#transactionTable td{
+
+    padding:16px;
+
+    border-top:1px solid var(--border);
+
+    font-size:14px;
+
+    vertical-align:middle;
+
+}
+
+
+/* =====================================================
+   ROW
+===================================================== */
+
+#transactionTable tbody tr{
+
+    transition:var(--transition);
+
+}
+
+#transactionTable tbody tr:hover{
+
+    background:#F8FAFC;
+
+}
+
+/* =====================================================
+   EMPTY TABLE
+===================================================== */
+
+#transactionTable tbody td[colspan]{
+
+    text-align:center;
+
+    color:var(--text-light);
+
+    padding:32px;
+
+}
+
+
+/* =====================================================
+   TRANSACTION TYPE
+===================================================== */
+
+.transaction-income{
+
+    color:var(--success);
+
+    font-weight:700;
+
+}
+
+.transaction-expense{
+
+    color:var(--danger);
+
+    font-weight:700;
+
+}
+
+
+/* =====================================================
+   NOMINAL
+===================================================== */
+
+.transaction-amount{
+
+    text-align:right;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+}
+
+
+/* =====================================================
+   CATEGORY
+===================================================== */
+
+.transaction-category{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+/* =====================================================
+   ACTION
+===================================================== */
+
+.transaction-action{
+
+    margin-top:24px;
+
+    text-align:center;
+
+}
+
+
+/* =====================================================
+   MOBILE CARD
+===================================================== */
+
+#mobileTransaction{
+
+    display:none;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width:768px){
+
+    .table-wrapper{
+
+        display:none;
+
+    }
+
+    #mobileTransaction{
+
+        display:grid;
+
+        gap:16px;
+
+    }
+
+    .transaction-filter{
+
+        gap:16px;
+
+    }
+
+    .transaction-action{
+
+        margin-top:20px;
+
+    }
+
+}
