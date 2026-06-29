@@ -41,6 +41,56 @@ function renderInsight(){
 
 }
 /* =====================================================
+   INSIGHT CARD
+===================================================== */
+
+function renderInsightCard(item){
+
+    const card=
+
+    createElement(
+
+        "div",
+
+        "insight-card fade-in"
+
+    );
+
+    card.innerHTML=`
+
+    <div class="insight-icon">
+
+        💡
+
+    </div>
+
+    <div class="insight-content">
+
+        <h3>
+
+            ${item.title}
+
+        </h3>
+
+        <p>
+
+            ${item.description}
+
+        </p>
+
+    </div>
+
+    `;
+
+    DOM.insightContainer.appendChild(
+
+        card
+
+    );
+
+}
+
+/* =====================================================
    EMPTY INSIGHT
 ===================================================== */
 
