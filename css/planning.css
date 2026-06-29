@@ -1,0 +1,312 @@
+/* =====================================================
+   FINANCE DASHBOARD
+   FILE : css/planning.css
+   DESCRIPTION : Planning
+===================================================== */
+
+
+/* =====================================================
+   SUMMARY
+===================================================== */
+
+.planning-summary{
+
+    margin-bottom:24px;
+
+}
+
+.planning-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.planning-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:4px;
+
+    height:100%;
+
+    background:var(--primary);
+
+}
+
+.planning-label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+}
+
+.planning-card h2{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+
+/* =====================================================
+   HEALTH
+===================================================== */
+
+.planning-health{
+
+    margin-bottom:24px;
+
+}
+
+.planning-health-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:12px;
+
+}
+
+#budgetHealth{
+
+    color:var(--success);
+
+    font-size:34px;
+
+}
+
+#budgetHealthStatus{
+
+    margin-bottom:20px;
+
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress{
+
+    height:12px;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    background:#E5E7EB;
+
+}
+
+.progress-bar{
+
+    width:0;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        var(--success),
+        #34D399
+    );
+
+    transition:width .4s ease;
+
+}
+
+/* =====================================================
+   PLANNING LIST
+===================================================== */
+
+.planning-list{
+
+    display:grid;
+
+    gap:16px;
+
+}
+
+
+/* =====================================================
+   PLANNING ITEM
+===================================================== */
+
+.planning-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:18px 20px;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    background:var(--surface);
+
+    transition:var(--transition);
+
+}
+
+.planning-item:hover{
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.planning-info{
+
+    flex:1;
+
+}
+
+.planning-info h3{
+
+    font-size:16px;
+
+    margin-bottom:6px;
+
+}
+
+.planning-info p{
+
+    font-size:13px;
+
+    color:var(--text-light);
+
+}
+
+
+/* =====================================================
+   PLANNING VALUE
+===================================================== */
+
+.planning-value{
+
+    text-align:right;
+
+    min-width:120px;
+
+}
+
+.planning-value h4{
+
+    font-size:18px;
+
+    color:var(--primary);
+
+    margin-bottom:4px;
+
+}
+
+.planning-value span{
+
+    font-size:13px;
+
+    color:var(--text-light);
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.planning-status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.planning-status.safe{
+
+    background:#ECFDF5;
+
+    color:var(--success);
+
+}
+
+.planning-status.warning{
+
+    background:#FEF3C7;
+
+    color:var(--warning);
+
+}
+
+.planning-status.danger{
+
+    background:#FEE2E2;
+
+    color:var(--danger);
+
+}
+
+.planning-status.over{
+
+    background:#FEE2E2;
+
+    color:#B91C1C;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width:768px){
+
+    .planning-item{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .planning-value{
+
+        width:100%;
+
+        text-align:left;
+
+    }
+
+}
+
+
