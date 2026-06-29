@@ -1,0 +1,157 @@
+/* =====================================================
+   FINANCE DASHBOARD
+   FILE : css/cards.css
+   DESCRIPTION : Cards
+===================================================== */
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    background:var(--surface);
+
+    border-radius:var(--radius-lg);
+
+    padding:32px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:32px;
+
+}
+
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+.hero-insight{
+
+    padding:16px;
+
+    border-left:4px solid var(--primary);
+
+    background:#F8FAFF;
+
+    border-radius:var(--radius-sm);
+
+}
+
+.hero-month{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--text-light);
+
+}
+
+.hero-version{
+
+    color:var(--text-light);
+
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section{
+
+    background:var(--surface);
+
+    border-radius:var(--radius);
+
+    padding:24px;
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+
+/* =====================================================
+   SUMMARY CARD
+===================================================== */
+
+.summary-card{
+
+    background:#FFF;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:20px;
+
+    transition:var(--transition);
+
+}
+
+.summary-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow);
+
+}
+
+.summary-label{
+
+    color:var(--text-light);
+
+    margin-bottom:12px;
+
+    font-size:14px;
+
+}
+
+.summary-card h2{
+
+    font-size:28px;
+
+    color:var(--primary);
+
+}
+
+
+/* =====================================================
+   CHART SUMMARY
+===================================================== */
+
+.chart-summary-card{
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:18px;
+
+    background:#FFF;
+
+}
+
+
