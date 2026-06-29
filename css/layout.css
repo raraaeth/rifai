@@ -1,0 +1,375 @@
+/* =====================================================
+   FINANCE DASHBOARD
+   FILE : css/layout.css
+   DESCRIPTION : Layout & Grid
+===================================================== */
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    margin-bottom:32px;
+
+}
+
+.hero-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+
+/* =====================================================
+   HERO FOOTER
+===================================================== */
+
+.hero-footer{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:16px;
+
+    flex-wrap:wrap;
+
+}
+
+
+/* =====================================================
+   SUMMARY
+===================================================== */
+
+.summary-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+
+/* =====================================================
+   CHART SUMMARY
+===================================================== */
+
+.chart-summary{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(3,1fr);
+
+    gap:20px;
+
+    margin-top:20px;
+
+}
+
+
+/* =====================================================
+   STATISTICS
+===================================================== */
+
+.statistics-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+
+/* =====================================================
+   PLANNING
+===================================================== */
+
+.planning-summary{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(4,1fr);
+
+    gap:20px;
+
+    margin-bottom:24px;
+
+}
+
+.planning-health{
+
+    margin-bottom:24px;
+
+}
+
+.planning-list{
+
+    display:grid;
+
+    gap:16px;
+
+}
+
+/* =====================================================
+   INSIGHT
+===================================================== */
+
+.insight-grid{
+
+    display:grid;
+
+    gap:20px;
+
+}
+
+
+/* =====================================================
+   TRANSACTION FILTER
+===================================================== */
+
+.transaction-filter{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:16px;
+
+    margin-bottom:24px;
+
+}
+
+.filter-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.filter-search{
+
+    grid-column:span 2;
+
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-wrapper{
+
+    width:100%;
+
+    overflow-x:auto;
+
+}
+
+
+/* =====================================================
+   TRANSACTION ACTION
+===================================================== */
+
+.transaction-action{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:24px;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer-container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:24px;
+
+    flex-wrap:wrap;
+
+}
+
+.footer-bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:20px;
+
+    padding-top:20px;
+
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:16px;
+
+}
+
+
+/* =====================================================
+   EMPTY & ERROR
+===================================================== */
+
+#emptyState,
+#errorState{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:16px;
+
+    text-align:center;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:992px){
+
+    .summary-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .planning-summary{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .transaction-filter{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .filter-search{
+
+        grid-column:span 2;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .statistics-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .chart-summary{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .transaction-filter{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .filter-search{
+
+        grid-column:span 1;
+
+    }
+
+    .footer-container{
+
+        flex-direction:column;
+
+    }
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:12px;
+
+    }
+
+}
+
+@media (max-width:576px){
+
+    .summary-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .planning-summary{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
