@@ -1,0 +1,128 @@
+/* =====================================================
+   FINANCE DASHBOARD
+   FILE : css/footer.css
+   DESCRIPTION : Footer
+===================================================== */
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+#footer{
+
+    margin-top:48px;
+
+}
+
+.footer-container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:24px;
+
+}
+
+.footer-left h3{
+
+    font-size:20px;
+
+    margin-bottom:8px;
+
+    color:var(--text);
+
+}
+
+.footer-left p{
+
+    max-width:420px;
+
+    color:var(--text-light);
+
+    line-height:1.7;
+
+}
+
+.footer-right{
+
+    text-align:right;
+
+}
+
+.footer-right div{
+
+    font-size:13px;
+
+    color:var(--text-light);
+
+    margin-bottom:6px;
+
+}
+
+.footer-right strong{
+
+    font-size:16px;
+
+    color:var(--primary);
+
+}
+
+
+/* =====================================================
+   FOOTER BOTTOM
+===================================================== */
+
+.footer-bottom{
+
+    margin-top:24px;
+
+    padding-top:20px;
+
+    border-top:1px solid var(--border);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    font-size:14px;
+
+    color:var(--text-light);
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width:768px){
+
+    .footer-container{
+
+        flex-direction:column;
+
+    }
+
+    .footer-right{
+
+        text-align:left;
+
+    }
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+}
