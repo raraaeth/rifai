@@ -85,18 +85,49 @@ function renderPlanningList(){
     );
 
     let html = "";
+let html = "";
 
-    planning.items.forEach(item=>{
+const items =
 
-        const percent =
+[...planning.items]
 
-        item.budget===0
+.sort(
+
+    (a,b)=>{
+
+        const percentA =
+
+        a.budget===0
 
         ? 0
 
-        :
+        : (a.used/a.budget);
 
-        (item.used/item.budget)*100;
+        const percentB =
+
+        b.budget===0
+
+        ? 0
+
+        : (b.used/b.budget);
+
+        return percentB-percentA;
+
+    }
+
+);
+
+items.forEach(item=>{
+
+    const percent =
+
+    item.budget===0
+
+    ? 0
+
+    :
+
+    (item.used/item.budget)*100;
 
         html += `
 
