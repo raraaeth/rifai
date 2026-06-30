@@ -227,9 +227,7 @@ function getChartOptions(){
 
 function updateChartSummary(){
 
-    const summary=
-
-    Finance.dashboard.summary;
+    const summary = Finance.dashboard.chartSummary;
 
     setChartText(
 
