@@ -187,24 +187,21 @@ function toNumber(value){
         value===null ||
         value===undefined ||
         value===""
-
     ){
-
         return 0;
-
     }
 
-    return Number(
+    if(typeof value==="number"){
+        return value;
+    }
 
-        String(value)
-
+    const text = String(value)
+        .replace(/Rp/gi,"")
+        .replace(/\s/g,"")
         .replace(/\./g,"")
+        .replace(",", ".");
 
-        .replace(/,/g,"")
-
-        .replace(/[^\d-]/g,"")
-
-    ) || 0;
+    return Number(text) || 0;
 
 }
 
