@@ -166,15 +166,17 @@ function processStatistic(){
 
     );
 
-    const expense=
+    const expense =
 
-    transaksi.filter(
+transaksi.filter(item=>
 
-        item=>
+    item.jenis===CATEGORY.EXPENSE &&
 
-        item.jenis===CATEGORY.EXPENSE
+    item.kategori!==CATEGORY.WIFE &&
 
-    );
+    item.kategori!=="ortu"
+
+);
 
     const biggestIncome=
 
