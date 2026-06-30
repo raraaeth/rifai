@@ -347,41 +347,170 @@ function processChart(){
 
 function processPlanning(){
 
-    const planning=
+    const month = Finance.filter.month;
 
-    Finance.data.planning;
+    /* ==========================
+       Planning Bulan Aktif
+    ========================== */
 
-    const expense=
+    const planning =
 
-    Finance.dashboard.summary.expense;
+    Finance.data.planning.filter(
 
-    const totalBudget=
-
-    sumBy(
-
-        planning,
-
-        "budget"
+        item=>item.Bulan===month
 
     );
 
-    const usedPercent=
+    /* ==========================
+       Transaksi Bulan Aktif
+    ========================== */
+
+    const transaksi =
+
+    Finance.data.transaksi.filter(
+
+        item=>
+
+        item.tanggal.startsWith(month)
+
+    );
+
+    /* ==========================
+       Gaji Bulan Aktif
+    ========================== */
+
+    const salary =
+
+    transaksi
+
+    .filter(
+
+        item=>
+
+        item.jenis===CATEGORY.INCOME &&
+
+        item.kategori==="gaji"
+
+    )
+
+    .reduce(
+
+        (total,item)=>
+
+        total+toNumber(item.nominal),
+
+        0
+
+    );
+
+    /* ==========================
+       Total Pengeluaran
+    ========================== */
+
+    const used =
+
+    transaksi
+
+    .filter(
+
+        item=>
+
+        item.jenis===CATEGORY.EXPENSE
+
+    )
+
+    .reduce(
+
+        (total,item)=>
+
+        total+toNumber(item.nominal),
+
+        0
+
+    );
+
+    /* ==========================
+       Total Budget
+    ========================== */
+
+    const totalBudget =
+
+    planning.reduce(
+
+        (total,item)=>
+
+        total+toNumber(item.Budget),
+
+        0
+
+    );
+
+    /* ==========================
+       Hitung Pengeluaran
+       Per Kategori
+    ========================== */
+
+    const items =
+
+    planning.map(plan=>{
+
+        const category =
+
+        plan.Kategori.toLowerCase();
+
+        const budget =
+
+        toNumber(plan.Budget);
+
+        const used =
+
+        transaksi
+
+        .filter(
+
+            item=>
+
+            item.jenis===CATEGORY.EXPENSE &&
+
+            item.kategori.toLowerCase()===category
+
+        )
+
+        .reduce(
+
+            (total,item)=>
+
+            total+toNumber(item.nominal),
+
+            0
+
+        );
+
+        return{
+
+            kategori:plan.Kategori,
+
+            budget,
+
+            used
+
+        };
+
+    });
+
+    /* ==========================
+       Financial Health
+    ========================== */
+
+    const usedPercent =
 
     totalBudget===0
 
     ? 0
 
-    :
+    : (used/totalBudget)*100;
 
-    (
-
-        expense/
-
-        totalBudget
-
-    )*100;
-
-    const healthScore=
+    const healthScore =
 
     calculateHealthScore(
 
@@ -393,34 +522,26 @@ function processPlanning(){
 
     Finance.dashboard.planning={
 
-        salary:
-
-        planning[0]?.gaji || 0,
+        salary,
 
         totalBudget,
 
-        used:expense,
+        used,
+
         remaining:
 
-        totalBudget-expense,
+        totalBudget-used,
 
         usedPercent,
 
         healthScore,
 
-        healthLabel:
-
-        getHealthLabel(
-
-            healthScore
-
-        ),
-
-        items:planning
+        items
 
     };
 
 }
+
 /* =====================================================
    REMINDER
 ===================================================== */
