@@ -111,7 +111,7 @@ function renderPlanningList(){
 
 function renderPlanningItem(item){
 
-    const percent=
+    const percent =
 
     item.budget===0
 
@@ -119,15 +119,9 @@ function renderPlanningItem(item){
 
     :
 
-    (
+    (item.used/item.budget)*100;
 
-        item.used/
-
-        item.budget
-
-    )*100;
-
-    const element=
+    const element =
 
     createElement(
 
@@ -137,50 +131,57 @@ function renderPlanningItem(item){
 
     );
 
-    element.innerHTML=`
+    element.innerHTML = `
 
-    <div class="planning-info">
+    <div class="planning-item-header">
 
-        <h3>
+        <span class="planning-category">
 
             ${capitalize(item.kategori)}
 
-        </h3>
+        </span>
 
-        <p>
+        <strong>
 
-            Budget :
-            ${formatCurrency(item.budget)}
+            ${formatPercent(percent)}
 
-        </p>
+        </strong>
 
     </div>
 
-    <div class="planning-value">
+    <div class="progress">
 
-        <h4>
+        <div
 
-            ${formatCurrency(item.used)}
+            class="progress-bar ${getBudgetClass(percent)}"
 
-        </h4>
+            style="width:${Math.min(percent,100)}%">
+
+        </div>
+
+    </div>
+
+    <div class="planning-item-footer">
 
         <span>
 
-            ${formatPercent(percent)}
+            ${formatCurrency(item.used)}
+
+        </span>
+
+        <span>
+
+            /
+
+        </span>
+
+        <span>
+
+            ${formatCurrency(item.budget)}
 
         </span>
 
     </div>
-
-    <span class="planning-status ${
-
-        getBudgetClass(percent)
-
-    }">
-
-        ${getBudgetStatus(percent)}
-
-    </span>
 
     `;
 
