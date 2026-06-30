@@ -214,6 +214,10 @@ expense.length===0
 
 : totalExpense / expense.length;
 
+   console.log(totalExpense);
+console.log(expense.length);
+console.log(averageExpense);
+
     Finance.dashboard.statistic={
 
         transactionCount:
