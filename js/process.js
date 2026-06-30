@@ -194,21 +194,25 @@ transaksi.filter(item=>
 
     )[0] || {};
 
-    const averageExpense=
+    const totalExpense =
 
-    expense.length===0
+    expense.reduce(
 
-    ? 0
+    (total,item)=>
 
-    :
+    total + toNumber(item.nominal),
 
-    sumBy(
+    0
 
-        expense,
+);
 
-        "nominal"
+const averageExpense =
 
-    ) / expense.length;
+expense.length===0
+
+? 0
+
+: totalExpense / expense.length;
 
     Finance.dashboard.statistic={
 
