@@ -192,6 +192,74 @@
 
 }
 
+/* =====================================================
+   PLANNING CATEGORY CARD
+===================================================== */
+
+.planning-card-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    padding:20px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.planning-category-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.planning-category-item:not(:last-child){
+
+    padding-bottom:16px;
+
+    border-bottom:1px solid #F1F5F9;
+
+}
+
+.planning-category-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.planning-category-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:var(--text-light);
+
+    font-size:13px;
+
+}
+
 
 /* =====================================================
    PLANNING ITEM
