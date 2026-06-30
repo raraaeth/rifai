@@ -217,11 +217,11 @@ function renderReminder(){
 
             `
 
-            <span class="material-symbols-outlined">
+            <span class="reminder-icon">
 
-                ${item.icon}
+    ${item.icon}
 
-            </span>
+</span>
 
             <span>
 
