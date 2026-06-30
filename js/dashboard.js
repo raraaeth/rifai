@@ -160,11 +160,9 @@ function renderStatistic(){
 
  }
 
-
 /* =====================================================
    REMINDER
 ===================================================== */
-
 function renderReminder(){
 
     const reminders=
@@ -181,9 +179,13 @@ function renderReminder(){
 
         DOM.reminderContainer.innerHTML=`
 
-            <div class="reminder-item">
+            <div class="reminder-track">
 
-                ✅ Tidak ada reminder.
+                <div class="reminder-item">
+
+                    ✅ Tidak ada reminder.
+
+                </div>
 
             </div>
 
@@ -193,7 +195,17 @@ function renderReminder(){
 
     }
 
-    reminders.forEach(item=>{
+    const track=
+
+    createElement(
+
+        "div",
+
+        "reminder-track"
+
+    );
+
+    [...reminders,...reminders].forEach(item=>{
 
         const element=
 
@@ -201,7 +213,7 @@ function renderReminder(){
 
             "div",
 
-            "reminder-item fade-in",
+            "reminder-item",
 
             `
 
@@ -221,7 +233,7 @@ function renderReminder(){
 
         );
 
-        DOM.reminderContainer.appendChild(
+        track.appendChild(
 
             element
 
@@ -229,7 +241,15 @@ function renderReminder(){
 
     });
 
-}
+    DOM.reminderContainer.appendChild(
+
+        track
+
+    );
+
+                                        }
+
+
 
 /* =====================================================
    FOOTER
