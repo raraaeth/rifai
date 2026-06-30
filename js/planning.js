@@ -84,7 +84,7 @@ function renderPlanningList(){
 
     );
 
-    let html = "";
+   
 let html = "";
 
 const items =
@@ -206,93 +206,6 @@ items.forEach(item=>{
 }
 
 
-/* =====================================================
-   PLANNING ITEM
-===================================================== */
-
-function renderPlanningItem(item){
-
-    const percent =
-
-    item.budget===0
-
-    ? 0
-
-    :
-
-    (item.used/item.budget)*100;
-
-    const element =
-
-    createElement(
-
-        "div",
-
-        "planning-item fade-in"
-
-    );
-
-    element.innerHTML = `
-
-    <div class="planning-item-header">
-
-        <span class="planning-category">
-
-            ${capitalize(item.kategori)}
-
-        </span>
-
-        <strong>
-
-            ${formatPercent(percent)}
-
-        </strong>
-
-    </div>
-
-    <div class="progress">
-
-        <div
-
-            class="progress-bar ${getBudgetClass(percent)}"
-
-            style="width:${Math.min(percent,100)}%">
-
-        </div>
-
-    </div>
-
-    <div class="planning-item-footer">
-
-        <span>
-
-            ${formatCurrency(item.used)}
-
-        </span>
-
-        <span>
-
-            /
-
-        </span>
-
-        <span>
-
-            ${formatCurrency(item.budget)}
-
-        </span>
-
-    </div>
-
-    `;
-
-    DOM.planningContainer.appendChild(
-
-        element
-
-    );
-
-}
 
 /* =====================================================
    VALIDATION
