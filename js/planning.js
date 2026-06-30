@@ -26,41 +26,19 @@ function renderPlanning(){
 
 function renderPlanningSummary(){
 
-    const planning=
+    const planning = Finance.dashboard.planning;
 
-    Finance.dashboard.planning;
+    DOM.budgetSalary.textContent =
+    formatCurrency(planning.salary);
 
-    DOM.budgetSalary.textContent=
+    DOM.budgetUsed.textContent =
+    formatCurrency(planning.used);
 
-    formatCurrency(
+    DOM.budgetRemaining.textContent =
+    formatCurrency(planning.remaining);
 
-        planning.salary
-
-    );
-
-    DOM.budgetTotal.textContent=
-
-    formatCurrency(
-
-        planning.totalBudget
-
-    );
-
-    DOM.budgetUsed.textContent=
-
-    formatCurrency(
-
-        planning.used
-
-    );
-
-    DOM.budgetRemaining.textContent=
-
-    formatCurrency(
-
-        planning.remaining
-
-    );
+    DOM.budgetHealth.textContent =
+    `${Math.round(planning.usedPercent)}%`;
 
 }
 
@@ -263,22 +241,16 @@ function resetPlanning(){
 
     DOM.budgetSalary.textContent="Rp0";
 
-    DOM.budgetTotal.textContent="Rp0";
-
     DOM.budgetUsed.textContent="Rp0";
 
     DOM.budgetRemaining.textContent="Rp0";
 
-    DOM.budgetHealth.textContent="0";
-
-    DOM.budgetHealthStatus.textContent="-";
+    DOM.budgetHealth.textContent="0%";
 
     DOM.budgetProgress.style.width="0%";
 
     removeChildren(
-
         DOM.planningContainer
-
     );
 
 }
@@ -310,25 +282,17 @@ function initializePlanning(){
 
 function updatePlanningHealth(){
 
-    const planning=
-
+    const planning =
     Finance.dashboard.planning;
 
-    DOM.budgetProgress.style.width=
+    DOM.budgetProgress.style.width =
+    `${Math.min(planning.usedPercent,100)}%`;
 
-    `${planning.usedPercent}%`;
+    DOM.budgetProgress.className =
+    `progress-bar ${getBudgetClass(planning.usedPercent)}`;
 
-    DOM.budgetProgress.className=
-
-    `progress-bar ${
-
-        getBudgetClass(
-
-            planning.usedPercent
-
-        )
-
-    }`;
+    DOM.budgetHealth.textContent =
+    `${Math.round(planning.usedPercent)}%`;
 
 }
 
