@@ -163,13 +163,35 @@ items.forEach(item=>{
 
             <div class="planning-category-footer">
 
-                ${formatCurrency(item.used)}
+    <span>
 
-                /
+        ${formatCurrency(item.used)}
 
-                ${formatCurrency(item.budget)}
+        /
 
-            </div>
+        ${formatCurrency(item.budget)}
+
+    </span>
+
+    <strong>
+
+        Sisa
+
+        ${formatCurrency(
+
+            Math.max(
+
+                item.budget-item.used,
+
+                0
+
+            )
+
+        )}
+
+    </strong>
+
+</div>
 
         </div>
 
