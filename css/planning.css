@@ -6,56 +6,52 @@
 
 
 /* =====================================================
-   SUMMARY
+   OVERVIEW
 ===================================================== */
 
-.planning-summary{
+.planning-overview{
 
-    margin-bottom:24px;
+    background:var(--surface);
 
-}
+    border:1px solid var(--border);
 
-.planning-card{
+    border-radius:var(--radius);
 
-    position:relative;
+    padding:18px;
 
-    overflow:hidden;
+    margin-bottom:20px;
 
-}
+    display:flex;
 
-.planning-card::before{
+    flex-direction:column;
 
-    content:"";
+    gap:14px;
 
-    position:absolute;
-
-    left:0;
-
-    top:0;
-
-    width:4px;
-
-    height:100%;
-
-    background:var(--primary);
+    box-shadow:var(--shadow-sm);
 
 }
 
-.planning-label{
+.planning-row{
 
-    display:block;
+    display:flex;
 
-    margin-bottom:10px;
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:15px;
+
+}
+
+.planning-row span{
 
     color:var(--text-light);
 
-    font-size:14px;
-
 }
 
-.planning-card h2{
+.planning-row strong{
 
-    font-size:28px;
+    font-size:17px;
 
     font-weight:700;
 
@@ -66,35 +62,51 @@
    HEALTH
 ===================================================== */
 
-.planning-health{
-
-    margin-bottom:24px;
-
-}
-
-.planning-health-header{
+.planning-health-row{
 
     display:flex;
 
-    justify-content:space-between;
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.planning-health-title{
+
+    font-size:15px;
+
+    color:var(--text-light);
+
+}
+
+.planning-health-progress{
+
+    display:flex;
 
     align-items:center;
 
-    margin-bottom:12px;
+    gap:12px;
+
+}
+
+.planning-health-progress .progress{
+
+    flex:1;
 
 }
 
 #budgetHealth{
 
+    min-width:45px;
+
+    text-align:right;
+
+    font-size:15px;
+
+    font-weight:700;
+
     color:var(--success);
-
-    font-size:34px;
-
-}
-
-#budgetHealthStatus{
-
-    margin-bottom:20px;
 
 }
 
@@ -105,13 +117,13 @@
 
 .progress{
 
-    height:12px;
+    height:10px;
+
+    background:#E5E7EB;
 
     border-radius:999px;
 
     overflow:hidden;
-
-    background:#E5E7EB;
 
 }
 
@@ -121,15 +133,22 @@
 
     height:100%;
 
+    border-radius:999px;
+
+    transition:.35s;
+
     background:linear-gradient(
+
         90deg,
+
         var(--success),
+
         #34D399
+
     );
 
-    transition:width .4s ease;
-
 }
+
 
 /* =====================================================
    PLANNING LIST
