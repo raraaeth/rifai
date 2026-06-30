@@ -348,6 +348,9 @@ function processChart(){
 function processPlanning(){
 
     const month = Finance.filter.month;
+   console.log("Finance.filter.month =", Finance.filter.month);
+console.log("Planning =", planning);
+console.log("Transaksi =", transaksi);
 
     /* ==========================
        Planning Bulan Aktif
