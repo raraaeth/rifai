@@ -60,7 +60,7 @@ function renderInsightCard(item){
 
     <div class="insight-icon">
 
-        💡
+        ${item.icon || "💡"}
 
     </div>
 
