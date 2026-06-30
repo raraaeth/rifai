@@ -404,3 +404,48 @@ label{
     }
 
       }
+/* =====================================================
+   REMINDER MARQUEE
+===================================================== */
+
+.reminder-container{
+
+    overflow:hidden;
+
+    position:relative;
+
+    white-space:nowrap;
+
+}
+
+.reminder-track{
+
+    display:inline-flex;
+
+    gap:16px;
+
+    animation:reminderMove 25s linear infinite;
+
+}
+
+.reminder-container:hover .reminder-track{
+
+    animation-play-state:paused;
+
+}
+
+@keyframes reminderMove{
+
+    from{
+
+        transform:translateX(100%);
+
+    }
+
+    to{
+
+        transform:translateX(-100%);
+
+    }
+
+}
