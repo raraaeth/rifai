@@ -13,7 +13,7 @@ function renderPlanning(){
 
     renderPlanningSummary();
 
-    renderPlanningHealth();
+    updatePlanningHealth()
 
     renderPlanningList();
 
