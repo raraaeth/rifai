@@ -645,22 +645,229 @@ function processReminder(){
 
 function processInsight(){
 
-    Finance.dashboard.insight=[
+    const insights=[];
 
-        {
+    const summary=
 
-            title:"Insight Hari Ini",
+    Finance.dashboard.summary;
+
+    const statistic=
+
+    Finance.dashboard.statistic;
+
+    const planning=
+
+    Finance.dashboard.planning;
+
+    /* ======================================
+       PENGELUARAN TERBESAR INSIGHT
+    ====================================== */
+
+    if(statistic.biggestExpense?.kategori){
+
+        insights.push({
+
+            icon:"💰",
+
+            title:"Pengeluaran Terbesar",
 
             description:
 
-            randomInsight()
+            `Kategori ${capitalize(
 
-        }
+                statistic.biggestExpense.kategori
 
-    ];
+            )} menghabiskan ${
+
+                formatCurrency(
+
+                    statistic.biggestExpense.nominal
+
+                )
+
+            }.`
+
+        });
+
+    }
+
+    /* ======================================
+       SAVING RATE INSIGHT 
+    ====================================== */
+
+    if(summary.savingRate>=30){
+
+        insights.push({
+
+            icon:"📈",
+
+            title:"Saving Rate",
+
+            description:
+
+            `Saving Rate mencapai ${
+
+                Math.round(
+
+                    summary.savingRate
+
+                )
+
+            }%. Kondisi keuangan sangat baik.`
+
+        });
+
+    }
+
+    else if(summary.savingRate>=20){
+
+        insights.push({
+
+            icon:"✅",
+
+            title:"Saving Rate",
+
+            description:
+
+            `Saving Rate ${
+
+                Math.round(
+
+                    summary.savingRate
+
+                )
+
+            }%. Target bulan ini tercapai.`
+
+        });
+
+    }
+
+    else{
+
+        insights.push({
+
+            icon:"⚠️",
+
+            title:"Saving Rate",
+
+            description:
+
+            `Saving Rate hanya ${
+
+                Math.round(
+
+                    summary.savingRate
+
+                )
+
+            }%. Sebaiknya kurangi pengeluaran.`
+
+        });
+
+    }
+
+    /* ======================================
+       PLANNING INSIGHT
+    ====================================== */
+
+    const highest=
+
+    [...planning.items]
+
+    .sort(
+
+        (a,b)=>
+
+        (b.used/b.budget)-
+
+        (a.used/a.budget)
+
+    )[0];
+
+    if(highest){
+
+        const percent=
+
+        Math.round(
+
+            (highest.used/highest.budget)
+
+            *100
+
+        );
+
+        insights.push({
+
+            icon:"🎯",
+
+            title:"Planning",
+
+            description:
+
+            `${capitalize(
+
+                highest.kategori
+
+            )} telah menggunakan ${
+
+                percent
+
+            }% dari budget.`
+
+        });
+
+    }
+
+    /* ======================================
+       CASH FLOW INSIGHT
+    ====================================== */
+
+    insights.push({
+
+        icon:"💵",
+
+        title:"Cash Flow",
+
+        description:
+
+        `Saldo saat ini ${
+
+            formatCurrency(
+
+                summary.balance
+
+            )
+
+        }.`
+
+    });
+
+    /* ======================================
+       AKTIVITAS INSIGHT
+    ====================================== */
+
+    insights.push({
+
+        icon:"🧾",
+
+        title:"Aktivitas",
+
+        description:
+
+        `Bulan ini terdapat ${
+
+            statistic.transactionCount
+
+        } transaksi.`
+
+    });
+
+    Finance.dashboard.insight=
+
+    insights.slice(0,5);
 
 }
-
 
 /* =====================================================
    PROCESS ALL
