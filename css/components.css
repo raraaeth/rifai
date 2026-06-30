@@ -449,3 +449,20 @@ label{
     }
 
 }
+/* =====================================================
+   REMINDER ICON
+===================================================== */
+
+.reminder-icon{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:18px;
+
+    flex-shrink:0;
+
+}
