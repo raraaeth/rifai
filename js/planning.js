@@ -48,7 +48,7 @@ function renderPlanningSummary(){
 
 function renderPlanningList(){
 
-    const planning=
+    const planning =
 
     Finance.dashboard.planning;
 
@@ -64,7 +64,7 @@ function renderPlanningList(){
 
         <div class="planning-item">
 
-            Belum ada data planning.
+            Belum ada data budget.
 
         </div>
 
@@ -74,11 +74,81 @@ function renderPlanningList(){
 
     }
 
+    const card =
+
+    createElement(
+
+        "div",
+
+        "planning-card-list fade-in"
+
+    );
+
+    let html = "";
+
     planning.items.forEach(item=>{
 
-        renderPlanningItem(item);
+        const percent =
+
+        item.budget===0
+
+        ? 0
+
+        :
+
+        (item.used/item.budget)*100;
+
+        html += `
+
+        <div class="planning-category-item">
+
+            <div class="planning-category-header">
+
+                <span>
+
+                    ${capitalize(item.kategori)}
+
+                </span>
+
+                <strong>
+
+                    ${Math.round(percent)}%
+
+                </strong>
+
+            </div>
+
+            <div class="progress">
+
+                <div
+
+                    class="progress-bar ${getBudgetClass(percent)}"
+
+                    style="width:${Math.min(percent,100)}%">
+
+                </div>
+
+            </div>
+
+            <div class="planning-category-footer">
+
+                ${formatCurrency(item.used)}
+
+                /
+
+                ${formatCurrency(item.budget)}
+
+            </div>
+
+        </div>
+
+        `;
 
     });
+
+    card.innerHTML = html;
+
+    DOM.planningContainer.appendChild(card);
 
 }
 
