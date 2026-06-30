@@ -559,74 +559,153 @@ function processReminder(){
 
     Finance.dashboard.planning;
 
-    if(
+    const summary=
 
-        planning.usedPercent>=100
+    Finance.dashboard.summary;
 
-    ){
+    /* ======================================
+       OVER BUDGET
+    ====================================== */
+
+    planning.items
+
+    .filter(item=>item.used>item.budget)
+
+    .forEach(item=>{
 
         reminder.push({
 
             type:"danger",
 
-            icon:"warning",
+            icon:"🚨",
 
-            text:"Budget bulan ini telah terlampaui."
+            text:
+
+            `${capitalize(item.kategori)} melebihi budget sebesar ${
+
+                formatCurrency(
+
+                    item.used-item.budget
+
+                )
+
+            }.`
 
         });
 
-    }
+    });
 
-    else if(
+    /* ======================================
+       HAMPIR HABIS
+    ====================================== */
 
-        planning.usedPercent>=85
+    planning.items
 
-    ){
+    .filter(item=>
+
+        item.used<=item.budget &&
+
+        item.budget>0 &&
+
+        (item.used/item.budget)>=0.85
+
+    )
+
+    .forEach(item=>{
 
         reminder.push({
 
             type:"warning",
 
-            icon:"notifications",
+            icon:"⚠️",
 
-            text:"Budget bulan ini hampir habis."
+            text:
+
+            `Budget ${capitalize(
+
+                item.kategori
+
+            )} telah digunakan ${
+
+                Math.round(
+
+                    item.used/item.budget*100
+
+                )
+
+            }%.`
 
         });
 
-    }
+    });
 
-    if(
+    /* ======================================
+       SAVING RATE
+    ====================================== */
 
-        Finance.dashboard.summary
-        .savingRate<20
-
-    ){
+    if(summary.savingRate<20){
 
         reminder.push({
 
             type:"warning",
 
-            icon:"savings",
+            icon:"💰",
 
-            text:"Saving Rate masih di bawah target."
+            text:
+
+            `Saving Rate masih ${
+
+                Math.round(
+
+                    summary.savingRate
+
+                )
+
+            }%. Target minimal 20%.`
 
         });
 
     }
 
-    if(
+    /* ======================================
+       AKHIR BULAN
+    ====================================== */
 
-        daysRemaining()<=5
-
-    ){
+    if(daysRemaining()<=5){
 
         reminder.push({
 
             type:"info",
 
-            icon:"calendar_month",
+            icon:"📅",
 
-            text:"Bulan akan segera berakhir."
+            text:
+
+            `Bulan ini tinggal ${
+
+                daysRemaining()
+
+            } hari lagi.`
+
+        });
+
+    }
+
+    /* ======================================
+       KONDISI AMAN
+    ====================================== */
+
+    if(reminder.length===0){
+
+        reminder.push({
+
+            type:"success",
+
+            icon:"🎉",
+
+            text:
+
+            "Seluruh budget masih sesuai rencana. Pertahankan!"
 
         });
 
@@ -634,9 +713,10 @@ function processReminder(){
 
     Finance.dashboard.reminder=
 
-    reminder;
+    reminder.slice(0,5);
 
 }
+
 
 
 /* =====================================================
