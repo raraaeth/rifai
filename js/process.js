@@ -757,43 +757,238 @@ function processInsight(){
 
                 Math.round(
 
-                    summary.savingRate
+/* =====================================================
+   INSIGHT
+===================================================== */
+
+function processInsight(){
+
+    const insights=[];
+
+    const summary=
+
+    Finance.dashboard.summary;
+
+    const statistic=
+
+    Finance.dashboard.statistic;
+
+    const planning=
+
+    Finance.dashboard.planning;
+
+    /* ======================================
+       TOTAL PENGELUARAN PRODUKTIF
+       (EXCLUDE NAFKAH ISTRI & ORTU)
+    ====================================== */
+
+    const productiveExpense=
+
+    Finance.data.transaksi
+
+    .filter(item=>
+
+        item.jenis===CATEGORY.EXPENSE &&
+
+        !EXCLUDED_CATEGORY.includes(
+
+            item.kategori
+
+        )
+
+    )
+
+    .reduce(
+
+        (total,item)=>
+
+        total+
+
+        toNumber(item.nominal),
+
+        0
+
+    );
+
+    /* ======================================
+       PENGELUARAN TERBESAR
+    ====================================== */
+
+    if(statistic.biggestExpense?.kategori){
+
+        const expensePercent=
+
+        productiveExpense===0
+
+        ? 0
+
+        :
+
+        (
+
+            toNumber(
+
+                statistic.biggestExpense.nominal
+
+            )
+
+            /
+
+            productiveExpense
+
+        )*100;
+
+        insights.push({
+
+            icon:"💰",
+
+            title:"Pengeluaran Terbesar",
+
+            description:
+
+            `${capitalize(
+
+                statistic.biggestExpense.kategori
+
+            )} merupakan pengeluaran terbesar bulan ini sebesar ${
+
+                formatCurrency(
+
+                    statistic.biggestExpense.nominal
 
                 )
 
-            }%. Sebaiknya kurangi pengeluaran.`
+            } (${Math.round(
+
+                expensePercent
+
+            )}% dari total pengeluaran produktif).`
 
         });
 
     }
 
     /* ======================================
-       PLANNING INSIGHT
+       SAVING RATE
     ====================================== */
 
-    const highest=
+    if(summary.savingRate>=30){
 
-    [...planning.items]
+        insights.push({
 
-    .sort(
+            icon:"📈",
 
-        (a,b)=>
+            title:"Saving Rate",
 
-        (b.used/b.budget)-
+            description:
 
-        (a.used/a.budget)
+            `Saving Rate mencapai ${
 
-    )[0];
+                Math.round(
 
-    if(highest){
+                    summary.savingRate
+
+                )
+
+            }%. Kondisi keuangan sangat sehat.`
+
+        });
+
+    }
+
+    else if(summary.savingRate>=20){
+
+        insights.push({
+
+            icon:"✅",
+
+            title:"Saving Rate",
+
+            description:
+
+            `Saving Rate ${
+
+                Math.round(
+
+                    summary.savingRate
+
+                )
+
+            }%. Target bulan ini berhasil dicapai.`
+
+        });
+
+    }
+
+    else{
+
+        insights.push({
+
+            icon:"⚠️",
+
+            title:"Saving Rate",
+
+            description:
+
+            `Saving Rate hanya ${
+
+                Math.round(
+
+                    summary.savingRate
+
+                )
+
+            }%. Sebaiknya kurangi pengeluaran agar target tabungan tercapai.`
+
+        });
+
+    }
+
+    /* ======================================
+       PLANNING
+    ====================================== */
+
+    if(planning.items.length){
+
+        const highest=
+
+        [...planning.items]
+
+        .sort(
+
+            (a,b)=>
+
+            (b.used/b.budget)-
+
+            (a.used/a.budget)
+
+        )[0];
 
         const percent=
 
-        Math.round(
+        highest.budget===0
 
-            (highest.used/highest.budget)
+        ? 0
 
-            *100
+        :
+
+        (
+
+            highest.used/
+
+            highest.budget
+
+        )*100;
+
+        const remaining=
+
+        Math.max(
+
+            highest.budget-
+
+            highest.used,
+
+            0
 
         );
 
@@ -801,26 +996,42 @@ function processInsight(){
 
             icon:"🎯",
 
-            title:"Planning",
+            title:"Planning Budget",
 
             description:
 
-            `${capitalize(
+            `Budget ${capitalize(
 
                 highest.kategori
 
-            )} telah menggunakan ${
+            )} telah digunakan ${
 
-                percent
+                Math.round(percent)
 
-            }% dari budget.`
+            }% (${formatCurrency(
+
+                highest.used
+
+            )} dari ${formatCurrency(
+
+                highest.budget
+
+            )}). Sisa budget ${
+
+                formatCurrency(
+
+                    remaining
+
+                )
+
+            }.`
 
         });
 
     }
 
     /* ======================================
-       CASH FLOW INSIGHT
+       CASH FLOW
     ====================================== */
 
     insights.push({
@@ -831,7 +1042,23 @@ function processInsight(){
 
         description:
 
-        `Saldo saat ini ${
+        `Total pemasukan ${
+
+            formatCurrency(
+
+                summary.income
+
+            )
+
+        }, pengeluaran ${
+
+            formatCurrency(
+
+                summary.expense
+
+            )
+
+        }, sehingga saldo saat ini ${
 
             formatCurrency(
 
@@ -844,22 +1071,42 @@ function processInsight(){
     });
 
     /* ======================================
-       AKTIVITAS INSIGHT
+       AKTIVITAS
     ====================================== */
+
+    const average=
+
+    statistic.transactionCount===0
+
+    ? 0
+
+    :
+
+    summary.expense/
+
+    statistic.transactionCount;
 
     insights.push({
 
         icon:"🧾",
 
-        title:"Aktivitas",
+        title:"Aktivitas Bulan Ini",
 
         description:
 
-        `Bulan ini terdapat ${
+        `Terdapat ${
 
             statistic.transactionCount
 
-        } transaksi.`
+        } transaksi dengan rata-rata nilai transaksi ${
+
+            formatCurrency(
+
+                average
+
+            )
+
+        }.`
 
     });
 
