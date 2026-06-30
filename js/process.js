@@ -224,39 +224,30 @@ function processStatistic(){
 
 }
 
+
 /* =====================================================
    CHART
 ===================================================== */
 
 function processChart(){
 
-    const transaksi=
+    const transaksi =
 
     Finance.data.transaksi;
 
-    const grouped={};
+    const grouped = {};
 
     transaksi.forEach(item=>{
 
-        const date=
+        const date =
 
         new Date(item.tanggal);
 
-        const key=
+        const key =
 
-        `${
-
-            date.getFullYear()
-
-        }-${
-
-            String(
-
-                date.getMonth()+1
-
-            ).padStart(2,"0")
-
-        }`;
+        `${date.getFullYear()}-${String(
+            date.getMonth()+1
+        ).padStart(2,"0")}`;
 
         if(!grouped[key]){
 
@@ -272,37 +263,31 @@ function processChart(){
 
         }
 
-        if(
+        if(item.jenis===CATEGORY.INCOME){
 
-            item.jenis===CATEGORY.INCOME
+            grouped[key].income +=
 
-        ){
-
-            grouped[key].income+=
-
-            item.nominal;
+            toNumber(item.nominal);
 
         }
 
-        else{
+        else if(item.jenis===CATEGORY.EXPENSE){
 
-            grouped[key].expense+=
+            grouped[key].expense +=
 
-            item.nominal;
+            toNumber(item.nominal);
 
         }
 
     });
 
-    Finance.dashboard.chart=
+    const chartData =
 
     Object.values(grouped)
 
     .sort(
 
-        (a,b)=>
-
-        a.month.localeCompare(b.month)
+        (a,b)=>a.month.localeCompare(b.month)
 
     )
 
@@ -312,8 +297,39 @@ function processChart(){
 
     );
 
-}
+    Finance.dashboard.chart = chartData;
 
+    Finance.dashboard.chartSummary = {
+
+        income: chartData.reduce(
+
+            (total,item)=>total+item.income,
+
+            0
+
+        ),
+
+        expense: chartData.reduce(
+
+            (total,item)=>total+item.expense,
+
+            0
+
+        ),
+
+        balance: chartData.reduce(
+
+            (total,item)=>
+
+            total+(item.income-item.expense),
+
+            0
+
+        )
+
+    };
+
+}
 
 /* =====================================================
    PLANNING
