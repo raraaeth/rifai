@@ -122,6 +122,18 @@ const CATEGORY={
     WIFE:"nafkah istri"
 
 };
+
+/* =====================================================
+   EXCLUDED CATEGORY
+===================================================== */
+
+const EXCLUDED_CATEGORY=[
+
+    "nafkah istri",
+
+    "ortu"
+
+];
 /* =====================================================
    APPLICATION STATE
 ===================================================== */
@@ -345,18 +357,6 @@ const DOM={
     mobileTransaction:$("#mobileTransaction"),
 
     showMore:$("#showMore"),
-
-   /* =====================================================
-   EXCLUDED CATEGORY
-===================================================== */
-
-const EXCLUDED_CATEGORY=[
-
-    "nafkah istri",
-
-    "ortu"
-
-];
 
 
     /* ======================================
